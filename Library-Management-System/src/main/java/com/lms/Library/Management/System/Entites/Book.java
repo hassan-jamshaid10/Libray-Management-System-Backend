@@ -1,0 +1,32 @@
+package com.lms.Library.Management.System.Entites;
+
+
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.Date;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "book")
+public class Book {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    private String title;
+
+    @Column(nullable = false, unique = true)
+    private Integer ISBN;
+
+    @Column(name = "publication_date", nullable = false)
+    private Date publishingDate;
+
+    @Column(nullable = false)
+    private String status;
+}
